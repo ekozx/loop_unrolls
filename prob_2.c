@@ -2,7 +2,7 @@
 # include <stdlib.h>
 # include <time.h>
 
-#define ARRAY_SIZE 1024
+#define ARRAY_SIZE 32768 //2^15
 
 void random_integer_vector(int random_array[ARRAY_SIZE]) {
   srand (time(NULL));
@@ -18,7 +18,7 @@ int dot_product_unrolled_2(int a[ARRAY_SIZE], int b[ARRAY_SIZE]) {
   int i;
 
   //1024 = 2^(10), 256 = 2^(10 - 2)
-  for (i = 0; i < 512; ++i) {
+  for (i = 0; i < 16384; ++i) {
     sum += a[2 * i] * b[2 * i];
     sum += a[2 * i + 1] * b[2 * i + 1];
   }
@@ -31,7 +31,7 @@ int dot_product_unrolled_4(int a[ARRAY_SIZE], int b[ARRAY_SIZE]) {
   int i;
 
   //1024 = 2^(10), 256 = 2^(10 - 2)
-  for (i = 0; i < 256; ++i) {
+  for (i = 0; i < 8192; ++i) {
     sum += a[4 * i] * b[4 * i];
     sum += a[4 * i + 1] * b[4 * i + 1];
     sum += a[4 * i + 2] * b[4 * i + 2];
