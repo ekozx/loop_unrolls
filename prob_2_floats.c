@@ -57,7 +57,7 @@ int main(int argc, char const *argv[]) {
   if(argc == 1) {
     printf("Timing the dot product of two %d by %d matrices...\n", ARRAY_SIZE, ARRAY_SIZE);
 
-    printf("Generating the integer matrices...\n");
+    printf("Generating the float matrices...\n");
     clock_t start, end;
     double cpu_time_used;
 
