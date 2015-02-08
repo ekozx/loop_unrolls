@@ -14,8 +14,8 @@ void random_float_vector(float random_array[ARRAY_SIZE]) {
   }
 }
 
-int dot_product_unrolled_2(int a[ARRAY_SIZE], int b[ARRAY_SIZE]) {
-  int sum = 0;
+float dot_product_unrolled_2(float a[ARRAY_SIZE], float b[ARRAY_SIZE]) {
+  float sum = 0;
   int i;
 
   //1024 = 2^(10), 256 = 2^(10 - 2)
@@ -27,8 +27,8 @@ int dot_product_unrolled_2(int a[ARRAY_SIZE], int b[ARRAY_SIZE]) {
   return sum;
 }
 
-int dot_product_unrolled_4(int a[ARRAY_SIZE], int b[ARRAY_SIZE]) {
-  int sum = 0;
+float dot_product_unrolled_4(float a[ARRAY_SIZE], float b[ARRAY_SIZE]) {
+  float sum = 0;
   int i;
 
   //1024 = 2^(10), 256 = 2^(10 - 2)
@@ -42,8 +42,8 @@ int dot_product_unrolled_4(int a[ARRAY_SIZE], int b[ARRAY_SIZE]) {
   return sum;
 }
 
-int dot_product(int a[ARRAY_SIZE], int b[ARRAY_SIZE]) {
-  int sum = 0;
+float dot_product(float a[ARRAY_SIZE], float b[ARRAY_SIZE]) {
+  float sum = 0;
   int i;
 
   for (i = 0; i < ARRAY_SIZE; ++i) {
@@ -77,10 +77,10 @@ int main(int argc, char const *argv[]) {
 
     /* 0 unrolls */
 
-    fp = fopen("integer_unrolls/0_unrolls.txt", "w+");
+    fp = fopen("float_unrolls/0_unrolls.txt", "w+");
     for (i = 0; i < 200; ++i) {
       start = clock();
-      int result = dot_product(a, b);
+      float result = dot_product(a, b);
       end = clock();
       cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
       // printf("%f seconds used calculating dot product of random arrays using a normal loop\n", cpu_time_used);
@@ -90,10 +90,10 @@ int main(int argc, char const *argv[]) {
 
     /* 2 unrolls */
 
-    fp = fopen("integer_unrolls/2_unrolls.txt", "w+");
+    fp = fopen("float_unrolls/2_unrolls.txt", "w+");
     for (i = 0; i < 200; ++i) {
       start = clock();
-      int result_2 = dot_product_unrolled_2(a, b);
+      float result_2 = dot_product_unrolled_2(a, b);
       end = clock();      
       cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
       // printf("%f seconds used calculating dot product of random arrays using a 2 times unrolled loop\n", cpu_time_used);
@@ -103,10 +103,10 @@ int main(int argc, char const *argv[]) {
 
     /* 4 unrolls */
 
-    fp = fopen("integer_unrolls/4_unrolls.txt", "w+");
+    fp = fopen("float_unrolls/4_unrolls.txt", "w+");
     for (i = 0; i < 200; ++i) {
       start = clock();
-      int result_3 = dot_product_unrolled_4(a, b);
+      float result_3 = dot_product_unrolled_4(a, b);
       end = clock();      
       cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
       // printf("%f seconds used calculating dot product of random arrays using a 2 times unrolled loop\n", cpu_time_used);
