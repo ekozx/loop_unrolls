@@ -54,9 +54,9 @@ int dot_product(int a[ARRAY_SIZE], int b[ARRAY_SIZE]) {
 
 int main(int argc, char const *argv[]) {
   if(argc == 1) {
-    printf("Timing the dot product of two %d by %d matrices...\n", ARRAY_SIZE, ARRAY_SIZE);
+    // printf("Timing the dot product of two %d by %d matrices...\n", ARRAY_SIZE, ARRAY_SIZE);
 
-    printf("Generating the integer matrices...\n");
+    // printf("Generating the integer matrices...\n");
     clock_t start, end;
     double cpu_time_used;
 
@@ -69,7 +69,7 @@ int main(int argc, char const *argv[]) {
     end = clock();
 
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("%f seconds used generating random arrays \n", cpu_time_used);
+    // printf("%f seconds used generating random arrays \n", cpu_time_used);
 
     FILE *fp;
     int i;
