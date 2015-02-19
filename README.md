@@ -15,3 +15,6 @@
   integer_data = read.table("0_unrolls.txt")
   plot(integer_data$V1, xlab="for-loop iteration", ylab="seconds")
 </pre>
+
+<h4>Bash script to run once you've compiled your choice of c code:</h4>
+<pre>./rerun.sh</pre>
